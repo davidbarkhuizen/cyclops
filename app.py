@@ -36,7 +36,7 @@ FORMAT = pyaudio.paInt16
 CHUNK = 1024 #1024
 RATE = 44100
 bitsPerSample = 16 #16
-CHANNELS = 1
+CHANNELS = 2
 wav_header = genHeader(RATE, bitsPerSample, CHANNELS, CHUNK)
 
 audio = pyaudio.PyAudio()
