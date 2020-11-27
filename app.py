@@ -29,8 +29,7 @@ FORMAT = pyaudio.paInt16
 CHUNK = 1024 #1024
 RATE = 44100
 bitsPerSample = 16 #16
-CHANNELS = 2
-wav_header = genHeader(RATE, bitsPerSample, CHANNELS, CHUNK)
+CHANNELS = 1
 
 audio = pyaudio.PyAudio()
 
@@ -39,6 +38,8 @@ numdevices = info.get('deviceCount')
 for i in range(0, numdevices):
         if (audio.get_device_info_by_host_api_device_index(0, i).get('maxInputChannels')) > 0:
             print("Input Device id ", i, " - ", audio.get_device_info_by_host_api_device_index(0, i).get('name'))
+
+wav_header = genHeader(RATE, bitsPerSample, CHANNELS, CHUNK)
 
 stream = audio.open(format=FORMAT, 
     channels=CHANNELS, 
