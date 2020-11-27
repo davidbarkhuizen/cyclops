@@ -5,7 +5,6 @@ import time
 # --------------------------------------------
 
 import pyaudio
-import audio_processing as audioRec
 
 # --------------------------------------------
 
