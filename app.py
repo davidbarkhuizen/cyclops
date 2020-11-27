@@ -39,14 +39,14 @@ for i in range(0, numdevices):
         if (audio.get_device_info_by_host_api_device_index(0, i).get('maxInputChannels')) > 0:
             print("Input Device id ", i, " - ", audio.get_device_info_by_host_api_device_index(0, i).get('name'))
 
-wav_header = genHeader(RATE, bitsPerSample, CHANNELS, CHUNK)
+# wav_header = genHeader(RATE, bitsPerSample, CHANNELS, CHUNK)
 
-stream = audio.open(format=FORMAT, 
-    channels=CHANNELS, 
-    rate=RATE, 
-    input=True, 
-    input_device_index=0, 
-    frames_per_buffer=CHUNK)
+# stream = audio.open(format=FORMAT, 
+#     channels=CHANNELS, 
+#     rate=RATE, 
+#     input=True, 
+#     input_device_index=0, 
+#     frames_per_buffer=CHUNK)
 
 print("recording...")
 
