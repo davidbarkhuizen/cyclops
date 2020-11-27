@@ -6,13 +6,6 @@ import time
 
 import pyaudio
 
-# p = pyaudio.PyAudio()
-# info = p.get_host_api_info_by_index(0)
-# numdevices = info.get('deviceCount')
-# for i in range(0, numdevices):
-#         if (p.get_device_info_by_host_api_device_index(0, i).get('maxInputChannels')) > 0:
-#             print("Input Device id ", i, " - ", p.get_device_info_by_host_api_device_index(0, i).get('name'))
-
 # --------------------------------------------
 
 def genHeader(sampleRate, bitsPerSample, channels, samples):
@@ -40,6 +33,12 @@ CHANNELS = 2
 wav_header = genHeader(RATE, bitsPerSample, CHANNELS, CHUNK)
 
 audio = pyaudio.PyAudio()
+
+info = audio.get_host_api_info_by_index(0)
+numdevices = info.get('deviceCount')
+for i in range(0, numdevices):
+        if (audio.get_device_info_by_host_api_device_index(0, i).get('maxInputChannels')) > 0:
+            print("Input Device id ", i, " - ", audio.get_device_info_by_host_api_device_index(0, i).get('name'))
 
 stream = audio.open(format=FORMAT, 
     channels=CHANNELS, 
