@@ -6,7 +6,7 @@ camera = cv2.VideoCapture(0)
 
 capture_width = camera.get(3)
 capture_height = camera.get(4)
-print(f'resolution: ${capture_width} x ${capture_height}')
+print(f'resolution: {capture_width} x {capture_height}')
 
 def gen_frames():  
     while True:
